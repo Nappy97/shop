@@ -1,7 +1,8 @@
-package com.shop.shop.service;
+package com.shop.shop.service.item;
 
 import com.shop.shop.domain.item.ItemImg;
 import com.shop.shop.repository.ItemImgRepository;
+import com.shop.shop.service.item.FileService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

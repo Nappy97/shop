@@ -1,4 +1,4 @@
-package com.shop.shop.service;
+package com.shop.shop.service.item;
 
 import com.shop.shop.domain.item.Item;
 import com.shop.shop.domain.item.ItemImg;
@@ -8,6 +8,7 @@ import com.shop.shop.dto.item.ItemSearchDto;
 import com.shop.shop.dto.item.MainItemDto;
 import com.shop.shop.repository.ItemImgRepository;
 import com.shop.shop.repository.ItemRepository;
+import com.shop.shop.service.item.ItemImgService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

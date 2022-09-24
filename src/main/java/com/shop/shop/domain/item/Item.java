@@ -10,10 +10,10 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Entity
-@Getter
-@Setter
+@Table(name = "item")
+@Getter @Setter
 @ToString
-public class Item extends BaseEntity {
+public class Item extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,20 +23,20 @@ public class Item extends BaseEntity {
     @Column(nullable = false, length = 50)
     private String itemName;
 
-    @Column(nullable = false)
-    private int price;
-
-    @Column(nullable = false)
-    private int stock;    // 재고
-
     @Lob
     @Column(nullable = false)
     private String itemDetail;
 
-    @Enumerated(EnumType.STRING)
-    private ItemSellStatus itemSellStatus;  // 판매여부
+    @Column(nullable = false)
+    private int price;
 
-    public void updateItem(ItemFormDto itemFormDto){
+    @Column(nullable = false)
+    private int stock;
+
+    @Enumerated(EnumType.STRING)
+    private ItemSellStatus itemSellStatus;
+
+    public void updateItem(ItemFormDto itemFormDto) {
         this.itemName = itemFormDto.getItemName();
         this.price = itemFormDto.getPrice();
         this.stock = itemFormDto.getStock();
@@ -44,15 +44,16 @@ public class Item extends BaseEntity {
         this.itemSellStatus = itemFormDto.getItemSellStatus();
     }
 
-    public void removeStock(int stock){
+    public void removeStock(int stock) {
+
         int restStock = this.stock - stock;
-        if (restStock < 0){
-            throw new OutOfStockException("재고가 부족해요! (현재 재고 수량: " + this.stock + ")");
+        if (restStock < 0) {
+            throw new OutOfStockException("상품의 재고가 부족합니다. (현재 재고 수량: " + this.stock + ")");
         }
         this.stock = restStock;
     }
 
-    public void addStock(int stock){
+    public void addStock(int stock) {
         this.stock += stock;
     }
 

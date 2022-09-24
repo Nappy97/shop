@@ -2,7 +2,7 @@ package com.shop.shop.controller;
 
 import com.shop.shop.dto.item.ItemSearchDto;
 import com.shop.shop.dto.item.MainItemDto;
-import com.shop.shop.service.ItemService;
+import com.shop.shop.service.item.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

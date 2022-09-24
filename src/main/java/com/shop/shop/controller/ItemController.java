@@ -3,7 +3,7 @@ package com.shop.shop.controller;
 import com.shop.shop.domain.item.Item;
 import com.shop.shop.dto.item.ItemFormDto;
 import com.shop.shop.dto.item.ItemSearchDto;
-import com.shop.shop.service.ItemService;
+import com.shop.shop.service.item.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -72,7 +72,6 @@ public class ItemController {
         model.addAttribute("items", items);
         model.addAttribute("itemSearchDto", itemSearchDto);
         model.addAttribute("maxPage", 5);
-
         return "item/itemMng";
     }
 

@@ -3,28 +3,27 @@ package com.shop.shop.repository;
 import com.querydsl.core.QueryResults;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import com.shop.shop.domain.item.Item;
 import com.shop.shop.domain.item.ItemSellStatus;
 import com.shop.shop.domain.item.QItem;
 import com.shop.shop.domain.item.QItemImg;
 import com.shop.shop.dto.item.ItemSearchDto;
 import com.shop.shop.dto.item.MainItemDto;
 import com.shop.shop.dto.item.QMainItemDto;
+import com.shop.shop.domain.item.Item;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.thymeleaf.util.StringUtils;
-
 import javax.persistence.EntityManager;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class ItemRepositoryCustomImpl {
+public class ItemRepositoryCustomImpl implements ItemRepositoryCustom {
 
     private JPAQueryFactory queryFactory;
 
     // 생성자 DI를 통해서 JPAQueryFactory(EntityManager) 주입
-    public ItemRepositoryCustomImpl(EntityManager em) {
+    public ItemRepositoryCustomImpl(EntityManager em){
         this.queryFactory = new JPAQueryFactory(em);
     }
 
@@ -34,25 +33,25 @@ public class ItemRepositoryCustomImpl {
 
         if (StringUtils.equals("all", searchDateType) || searchDateType == null) {
             return null;
-        } else if (StringUtils.equals("id", searchDateType)) {
+        } else if (StringUtils.equals("1d",searchDateType)) {
             dateTime = dateTime.minusDays(1);
-        } else if (StringUtils.equals("1w", searchDateType)) {
+        } else if (StringUtils.equals("1w",searchDateType)) {
             dateTime = dateTime.minusWeeks(1);
-        } else if (StringUtils.equals("1m", searchDateType)) {
+        } else if (StringUtils.equals("1m",searchDateType)) {
             dateTime = dateTime.minusMonths(1);
-        } else if (StringUtils.equals("6m", searchDateType)) {
+        } else if (StringUtils.equals("6m",searchDateType)) {
             dateTime = dateTime.minusMonths(6);
         }
 
         return QItem.item.regTime.after(dateTime);
     }
 
-    // 상품 상태에 대한 검색 조건 BooleanExpression
-    private BooleanExpression searchSellStatusEq(ItemSellStatus searchSellStatus) {
+    // 상품 상태에 대한 조회 조건 BooleanExpression
+    private BooleanExpression searchSellStatusEq(ItemSellStatus searchSellStatus){
         return searchSellStatus == null ? null : QItem.item.itemSellStatus.eq(searchSellStatus);
     }
 
-    // 상품명 또는 등록자 아디에 대한 조회 조건 BooleanExpression
+    // 상품명 또는 등록자 아이디에 대한 조회 조건 BooleanExpression
     private BooleanExpression searchByLike(String searchBy, String searchQuery) {
         if (StringUtils.equals("itemName", searchBy)) {
             return QItem.item.itemName.like("%" + searchQuery + "%");
@@ -118,6 +117,4 @@ public class ItemRepositoryCustomImpl {
         long total = result.getTotal();
         return new PageImpl<>(content, pageable, total);
     }
-
-
 }

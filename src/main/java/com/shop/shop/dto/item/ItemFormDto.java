@@ -21,7 +21,7 @@ public class ItemFormDto {
     @NotBlank(message = "상품명을 입력해주세요")
     private String itemName;
 
-    @NotBlank(message = "가격을 입력해주세요")
+    @NotNull(message = "가격을 입력해주세요")
     private Integer price;
 
     @NotBlank(message = "상세 설명을 입력해주세요")

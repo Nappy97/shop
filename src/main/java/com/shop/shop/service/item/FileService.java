@@ -1,4 +1,4 @@
-package com.shop.shop.service;
+package com.shop.shop.service.item;
 
 import lombok.extern.java.Log;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ public class FileService {
 
     public String uploadFile(String uploadPath, String originalFileName, byte[] fileData) throws IOException {
 
-        UUID uuid = UUID.randomUUID();      // UUID 를 사용하ㅏ여 파일명 새로생성
+        UUID uuid = UUID.randomUUID();      // UUID 를 사용하여 파일명 새로생성
         String extension = originalFileName.substring(originalFileName.lastIndexOf("."));
         String savedFileName = uuid.toString() + extension; // 파일명
 
