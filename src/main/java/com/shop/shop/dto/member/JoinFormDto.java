@@ -1,15 +1,23 @@
 package com.shop.shop.dto.member;
 
+import com.shop.shop.domain.item.Item;
+import com.shop.shop.dto.item.ItemFormDto;
+import com.shop.shop.dto.item.ItemImgDto;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
+import org.modelmapper.ModelMapper;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
 public class JoinFormDto {
+
+//    private Long id;
 
     @NotBlank(message = "이름은 필수 입력해주세요")
     private String name;
@@ -24,4 +32,5 @@ public class JoinFormDto {
 
     @NotBlank(message = "주소는 필수 입력 값입니다")
     private String address;
+
 }

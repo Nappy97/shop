@@ -60,4 +60,13 @@ public class MemberController {
         model.addAttribute("loginFailMsg", "아이디 또는 비밀번호를 확인해주세요!");
         return "member/loginForm";
     }
+
+//    // 회원수정
+//    @PostMapping("/update")
+//    public String memberUpdate(@Valid JoinFormDto joinFormDto, BindingResult bindingResult, Model model){
+//
+//        if(bindingResult.hasErrors()){
+//            return ""
+//        }
+//    }
 }

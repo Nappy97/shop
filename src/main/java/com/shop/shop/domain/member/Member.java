@@ -41,4 +41,12 @@ public class Member extends BaseEntity {
         member.setRole(Role.USER);
         return member;
     }
+
+//    // 회원수정
+//    public void updateMember(JoinFormDto joinFormDto, PasswordEncoder passwordEncoder){
+//        this.name = joinFormDto.getName();
+//        String password = passwordEncoder.encode(joinFormDto.getPassword());
+//        this.password = joinFormDto.getPassword();
+//        this.address = joinFormDto.getAddress();
+//    }
 }
