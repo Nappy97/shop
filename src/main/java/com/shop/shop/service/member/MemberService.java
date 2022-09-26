@@ -8,7 +8,6 @@ import com.shop.shop.dto.item.ItemFormDto;
 import com.shop.shop.dto.member.JoinFormDto;
 import com.shop.shop.repository.*;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,9 +1,11 @@
 package com.shop.shop.controller;
 
+import com.shop.shop.config.auth.PrincipalDetail;
 import com.shop.shop.domain.member.Member;
 import com.shop.shop.dto.member.JoinFormDto;
 import com.shop.shop.service.member.MemberService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.security.Principal;
 
 @Controller
 @RequiredArgsConstructor
@@ -61,12 +64,5 @@ public class MemberController {
         return "member/loginForm";
     }
 
-//    // 회원수정
-//    @PostMapping("/update")
-//    public String memberUpdate(@Valid JoinFormDto joinFormDto, BindingResult bindingResult, Model model){
-//
-//        if(bindingResult.hasErrors()){
-//            return ""
-//        }
-//    }
+
 }
