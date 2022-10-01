@@ -1,8 +1,5 @@
 # shop
 
-# 프로젝트 기간 
-  2022/09/24 ~ 
-
 # 개발환경
 
 ## Languages
@@ -32,9 +29,4 @@
 ## Build Tools
 ![Gradle](https://img.shields.io/badge/Gradle-02303A.svg?style=for-the-badge&logo=Gradle&logoColor=white)
 
-# 추가예정
-## 1. OAUTH
-## 2. 게시판
-## 3. 결제
-## 4. 템플릿 & 유효성
-## 5. etc
+
